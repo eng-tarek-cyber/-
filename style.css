@@ -1,0 +1,409 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.sidebar-header h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.sidebar-item {
+  margin: 5px 0;
+}
+
+.sidebar-item a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #b8c7ce;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-right: 3px solid transparent;
+}
+
+.sidebar-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-right-color: #3498db;
+}
+
+.sidebar-item.active a {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: white;
+  border-right-color: #3498db;
+}
+
+.sidebar-item a i {
+  margin-left: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-item.log-out {
+  margin-top: auto;
+}
+
+.sidebar-item.log-out a {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #ff6b6b;
+}
+
+.sidebar-item.log-out a:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Page Content */
+.page-content {
+  width: 100%;
+  margin-right: 260px;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 15px 20px;
+}
+
+.search-form {
+  max-width: 400px;
+}
+
+.search-form .input-group {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-form .form-control {
+  border: none;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+}
+
+.search-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-form .btn-outline-primary {
+  border: none;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+}
+
+.search-form .btn-outline-primary:hover {
+  background-color: #2980b9;
+}
+
+.profile-icon {
+  color: #7f8c8d;
+}
+
+/* Stats Cards */
+.stat-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.bg-primary-light {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.bg-success-light {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.bg-warning-light {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.bg-info-light {
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+/* Table Styles */
+.table-responsive {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #495057;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .sidebar {
+    margin-right: -260px;
+    transition: margin-right 0.3s ease;
+  }
+
+  .sidebar.show {
+    margin-right: 0;
+  }
+
+  .page-content {
+    margin-right: 0;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  /* Overlay when sidebar is open on mobile */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
+
+@media (min-width: 993px) {
+  .navbar-toggler {
+    display: none;
+  }
+
+  .sidebar.collapsed {
+    width: 80px;
+  }
+
+  .sidebar.collapsed .sidebar-header h4,
+  .sidebar.collapsed .sidebar-item span {
+    display: none;
+  }
+
+  .sidebar.collapsed .sidebar-item a {
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .sidebar.collapsed .sidebar-item a i {
+    margin-left: 0;
+    font-size: 20px;
+  }
+
+  .sidebar.collapsed .sidebar-header {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .sidebar.collapsed .sidebar-header h4::before {
+    content: "\f201";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .stat-card {
+    margin-bottom: 15px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .stat-card h6 {
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation for sidebar */
+@keyframes slideIn {
+  from {
+    margin-right: -260px;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+.sidebar.show {
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Dropdown Menu RTL Fix */
+.dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+
+/* Table Responsive Improvements */
+@media (max-width: 768px) {
+  .table-responsive {
+    border: 0;
+  }
+
+  .table-responsive table {
+    min-width: 700px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .navbar,
+  #sidebarToggle {
+    display: none !important;
+  }
+
+  .page-content {
+    margin-right: 0 !important;
+  }
+}
